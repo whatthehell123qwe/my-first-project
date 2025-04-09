@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Question</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 50px auto;
+      background-color: #ffa6c5;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+    h1{
+        color: #b500fd ;
+    }
+
+    button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
+    #yesButton {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    #yesButton:hover {
+        background-color: #45a049;
+    }
+
+    #noButton {
+        background-color: #f44336;
+        color: white;
+    }
+
+    #noButton:hover {
+        background-color: #d32f2f;
+    }
+        .gif {
+        margin-top: 40px;
+        max-width: 300px;
+        }
+  </style>
+</head>
+<body>
+  <form>
+    <h1>WOULD YOU LIKE TO BE MY GIRLFRIEND?</h1>
+
+    <div class="button-container">
+      <button type="button" class="nobutton" id="noButton" onclick="handleNoClick()">No</button>
+      <button type="button" class="yesbutton" id="yesButton" onclick="nextpage()">Yes</button>
+    </div>
+
+    <img
+      class="gif"
+      src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjdnNWx1a3RuaXl3OGN6NnpxbG83ZXIzY21kM2JiZzI4cHZqOXd1NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif"
+      alt="Cute GIF"
+    />
+  </form>
+
+  <script>
+    const messages = [
+      "Are you sure?",
+      "Really sure?",
+      "Think again...",
+      "Don't break my heart 💔",
+      "Last chance 😢",
+      "Okay... but why? 😭",
+      "Ill give you second chance? 😭"
+    ];
+    let messageIndex = 0;
+
+    function handleNoClick() {
+      const noButton = document.getElementById("noButton");
+      const yesButton = document.getElementById("yesButton");
+
+      noButton.textContent = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
+
+      const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+      yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    }
+
+    function nextpage() {
+      window.location.href = "yes_page.html";
+    }
+  </script>
+</body>
+</html>
